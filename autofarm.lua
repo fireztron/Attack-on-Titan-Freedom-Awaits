@@ -64,3 +64,10 @@ spawn(function()
        RS.Heartbeat:Wait()
    end
 end)
+
+--// Anti Afk
+local VirtualUser=game:GetService('VirtualUser')
+game:service('Players').LocalPlayer.Idled:Connect(function()
+    VirtualUser:CaptureController()
+    VirtualUser:ClickButton2(Vector2.new())
+end)
